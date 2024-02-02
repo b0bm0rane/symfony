@@ -5,6 +5,7 @@ namespace App\Entity;
 use ApiPlatform\Metadata\ApiResource;
 use App\Repository\PokemonRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\SerializedName;
 
 #[ORM\Entity(repositoryClass: PokemonRepository::class)]
 #[ApiResource]
@@ -25,9 +26,11 @@ class Pokemon
     private ?int $niveau = null;
 
     #[ORM\Column(length: 255)]
+    #[SerializedName('type1')]
     private ?string $type_1 = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[SerializedName('type2')]
     private ?string $type_2 = null;
 
     public function getId(): ?int
